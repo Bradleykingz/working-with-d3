@@ -1,0 +1,310 @@
+{
+    "data": [
+        {
+            "State": "Vermont",
+            "unemploymentRateRank": 1,
+            "unemploymentRate": "0.0210",
+            "Pop": 628061
+        },
+        {
+            "State": "North Dakota",
+            "unemploymentRateRank": 2,
+            "unemploymentRate": "0.0230",
+            "Pop": 761723
+        },
+        {
+            "State": "Iowa",
+            "unemploymentRateRank": 3,
+            "unemploymentRate": "0.0240",
+            "Pop": 3179849
+        },
+        {
+            "State": "New Hampshire",
+            "unemploymentRateRank": 4,
+            "unemploymentRate": "0.0250",
+            "Pop": 1371246
+        },
+        {
+            "State": "Hawaii",
+            "unemploymentRateRank": 5,
+            "unemploymentRate": "0.0280",
+            "Pop": 1412687
+        },
+        {
+            "State": "Idaho",
+            "unemploymentRateRank": 5,
+            "unemploymentRate": "0.0280",
+            "Pop": 1826156
+        },
+        {
+            "State": "Utah",
+            "unemploymentRateRank": 5,
+            "unemploymentRate": "0.0280",
+            "Pop": 3282115
+        },
+        {
+            "State": "South Dakota",
+            "unemploymentRateRank": 8,
+            "unemploymentRate": "0.0290",
+            "Pop": 903027
+        },
+        {
+            "State": "Virginia",
+            "unemploymentRateRank": 8,
+            "unemploymentRate": "0.0290",
+            "Pop": 8626207
+        },
+        {
+            "State": "Wisconsin",
+            "unemploymentRateRank": 8,
+            "unemploymentRate": "0.0290",
+            "Pop": 5851754
+        },
+        {
+            "State": "Colorado",
+            "unemploymentRateRank": 11,
+            "unemploymentRate": "0.0300",
+            "Pop": 5845526
+        },
+        {
+            "State": "Massachusetts",
+            "unemploymentRateRank": 11,
+            "unemploymentRate": "0.0300",
+            "Pop": 6976597
+        },
+        {
+            "State": "Nebraska",
+            "unemploymentRateRank": 11,
+            "unemploymentRate": "0.0300",
+            "Pop": 1952570
+        },
+        {
+            "State": "Delaware",
+            "unemploymentRateRank": 14,
+            "unemploymentRate": "0.0320",
+            "Pop": 982895
+        },
+        {
+            "State": "Maine",
+            "unemploymentRateRank": 14,
+            "unemploymentRate": "0.0320",
+            "Pop": 1345790
+        },
+        {
+            "State": "Oklahoma",
+            "unemploymentRateRank": 14,
+            "unemploymentRate": "0.0320",
+            "Pop": 3954821
+        },
+        {
+            "State": "Minnesota",
+            "unemploymentRateRank": 17,
+            "unemploymentRate": "0.0330",
+            "Pop": 5700671
+        },
+        {
+            "State": "Missouri",
+            "unemploymentRateRank": 17,
+            "unemploymentRate": "0.0330",
+            "Pop": 6169270
+        },
+        {
+            "State": "Florida",
+            "unemploymentRateRank": 19,
+            "unemploymentRate": "0.0340",
+            "Pop": 21992985
+        },
+        {
+            "State": "Kansas",
+            "unemploymentRateRank": 19,
+            "unemploymentRate": "0.0340",
+            "Pop": 2910357
+        },
+        {
+            "State": "Tennessee",
+            "unemploymentRateRank": 19,
+            "unemploymentRate": "0.0340",
+            "Pop": 6897576
+        },
+        {
+            "State": "Texas",
+            "unemploymentRateRank": 19,
+            "unemploymentRate": "0.0340",
+            "Pop": 29472295
+        },
+        {
+            "State": "Alabama",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 4908621
+        },
+        {
+            "State": "Arkansas",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 3038999
+        },
+        {
+            "State": "Indiana",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 6745354
+        },
+        {
+            "State": "Montana",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 1086759
+        },
+        {
+            "State": "New Jersey",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 8936574
+        },
+        {
+            "State": "South Carolina",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 5210095
+        },
+        {
+            "State": "Wyoming",
+            "unemploymentRateRank": 23,
+            "unemploymentRate": "0.0350",
+            "Pop": 567025
+        },
+        {
+            "State": "Rhode Island",
+            "unemploymentRateRank": 30,
+            "unemploymentRate": "0.0360",
+            "Pop": 1056161
+        },
+        {
+            "State": "Connecticut",
+            "unemploymentRateRank": 31,
+            "unemploymentRate": "0.0370",
+            "Pop": 3563077
+        },
+        {
+            "State": "Georgia",
+            "unemploymentRateRank": 31,
+            "unemploymentRate": "0.0370",
+            "Pop": 10736059
+        },
+        {
+            "State": "Maryland",
+            "unemploymentRateRank": 33,
+            "unemploymentRate": "0.0380",
+            "Pop": 6083116
+        },
+        {
+            "State": "Pennsylvania",
+            "unemploymentRateRank": 33,
+            "unemploymentRate": "0.0380",
+            "Pop": 12820878
+        },
+        {
+            "State": "Nevada",
+            "unemploymentRateRank": 35,
+            "unemploymentRate": "0.0400",
+            "Pop": 3139658
+        },
+        {
+            "State": "New York",
+            "unemploymentRateRank": 35,
+            "unemploymentRate": "0.0400",
+            "Pop": 19440469
+        },
+        {
+            "State": "Ohio",
+            "unemploymentRateRank": 35,
+            "unemploymentRate": "0.0400",
+            "Pop": 11747694
+        },
+        {
+            "State": "Kentucky",
+            "unemploymentRateRank": 38,
+            "unemploymentRate": "0.0410",
+            "Pop": 4499692
+        },
+        {
+            "State": "North Carolina",
+            "unemploymentRateRank": 38,
+            "unemploymentRate": "0.0410",
+            "Pop": 10611862
+        },
+        {
+            "State": "Oregon",
+            "unemploymentRateRank": 38,
+            "unemploymentRate": "0.0410",
+            "Pop": 4301089
+        },
+        {
+            "State": "California",
+            "unemploymentRateRank": 41,
+            "unemploymentRate": "0.0420",
+            "Pop": 39937489
+        },
+        {
+            "State": "Michigan",
+            "unemploymentRateRank": 41,
+            "unemploymentRate": "0.0420",
+            "Pop": 10045029
+        },
+        {
+            "State": "Illinois",
+            "unemploymentRateRank": 43,
+            "unemploymentRate": "0.0430",
+            "Pop": 12659682
+        },
+        {
+            "State": "Louisiana",
+            "unemploymentRateRank": 43,
+            "unemploymentRate": "0.0430",
+            "Pop": 4645184
+        },
+        {
+            "State": "Washington",
+            "unemploymentRateRank": 45,
+            "unemploymentRate": "0.0460",
+            "Pop": 7797095
+        },
+        {
+            "State": "West Virginia",
+            "unemploymentRateRank": 46,
+            "unemploymentRate": "0.0470",
+            "Pop": 1778070
+        },
+        {
+            "State": "Arizona",
+            "unemploymentRateRank": 47,
+            "unemploymentRate": "0.0490",
+            "Pop": 7378494
+        },
+        {
+            "State": "New Mexico",
+            "unemploymentRateRank": 47,
+            "unemploymentRate": "0.0490",
+            "Pop": 2096640
+        },
+        {
+            "State": "Mississippi",
+            "unemploymentRateRank": 49,
+            "unemploymentRate": "0.0500",
+            "Pop": 2989260
+        },
+        {
+            "State": "District of Columbia",
+            "unemploymentRateRank": 50,
+            "unemploymentRate": "0.0560",
+            "Pop": 720687
+        },
+        {
+            "State": "Alaska",
+            "unemploymentRateRank": 51,
+            "unemploymentRate": "0.0640",
+            "Pop": 734002
+        }
+    ]
+}

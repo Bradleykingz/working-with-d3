@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: "Open Sans", sans-serif;
+      flex-direction: column;
+    }
+    .state {
+      stroke-width: 1;
+      stroke: #ffffff;
+    }
+
+    div.tooltip {
+      position: absolute;
+      text-align: center;
+      width: 60px;
+      min-height: 28px;
+      padding: 8px 12px;
+      font: 12px sans-serif;
+      background: lightgray;
+      border: 0px;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+  </style>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tinycolor/1.4.1/tinycolor.js"></script>
+  <title></title>
+</head>
+<body>
+<h2>Unemployment rates in the United States, 2020</h2>
+<div class="home"></div>
+</body>
+<script>
+
+    Number.prototype.round = function (decimals) {
+        return Number((Math.round(this + "e" + decimals) + "e-" + decimals));
+    };
+
+    function selectDivisionNumber(array) {
+        let arraySize = array.length,
+            halfArray = Math.round(arraySize / 2);
+        let newArr = [];
+        //Take first and last item and push them to the array
+        newArr.push(array[0])
+        newArr.push(array[arraySize - 1]);
+        //Don't mind the order, they will be sorted later.
+
+        //Divide the array in two
+        let firstHalf = array.slice(0, halfArray);
+        let firstHalfSelection = firstHalf[Math.round(firstHalf.length / 2)];
+        newArr.push(firstHalfSelection);
+
+        let secondHalf = array.slice(halfArray, arraySize);
+        let secondHalfSelection = secondHalf[Math.round(secondHalf.length / 2)];
+        newArr.push(secondHalfSelection);
+        return newArr;
+    }
+
+</script>
+<script>
+    let fetchData = async () => {
+        //I've handily uploaded the data to this site for easy reference.
+        let url = "https://api.myjson.com/bins/cgbm8";
+        //'fetch()' returns a promise
+        let response= await fetch(url);
+        //'json()' also returns a promise
+        return response.json();
+    };
+
+    const width = 900;
+    const height = 600;
+
+    const svg = d3.select(".home").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    const projection = d3.geoAlbersUsa()
+        .translate([width / 2, height / 2])    // translate to center of screen
+        .scale([1000]);          // scale things down so see entire US
+
+    const path = d3.geoPath().projection(projection);
+
+    fetchData().then(response => {
+
+        const tooltip = d3.select(".home").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        let sampleMap = response.data.map(item => {
+            return Number(item.unemploymentRate);
+        });
+        let domain = selectDivisionNumber(sampleMap).sort();
+
+        //To help generate the scale, https://hihayk.github.io/scale/
+        const colorScale = d3.scaleLinear()
+            .domain(domain)
+            .range(["#00806D", "#00BC4C", "#00F200", "#85FB44"].reverse());
+
+        d3.json("https://gist.githubusercontent.com/Bradleykingz/3aa5206b6819a3c38b5d73cb814ed470/raw/a476b9098ba0244718b496697c5b350460d32f99/us-states.json", function (error, uState) {
+            if (error) throw error;
+            _(uState.features)
+                .keyBy('properties.name')
+                .merge(_.keyBy(response.data, 'State'))
+                .values()
+                .value();
+
+            svg.selectAll('path')
+                .data(uState.features)
+                .enter()
+                .append('path')
+                .attr("d", path)
+                .style('transition', "all 0.2s ease-in-out")
+                .attr('class', 'state')
+                .style('fill', function (d, i) {
+                    let uRate = d.unemploymentRate;
+                    return uRate ? colorScale(uRate) : "#ccc";
+                })
+                .on('mousemove', function (d) {
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+
+                    tooltip.style("left", (d3.event.pageX) + "px")
+                        .style("top", (d3.event.pageY) + "px")
+                        .text(()=> `${d.State}: ${(d.unemploymentRate*100).round(2).toFixed(1)}%`)
+                })
+                .on("mouseover", function (d) {
+                    d3.select(this)
+                        .style("fill", tinycolor(colorScale(d.unemploymentRate)).darken(15).toString())
+                        .style("cursor", "pointer");
+
+                })
+                .on("mouseout", function (d, i) {
+                    d3.select(this).style("fill", function () {
+                        let uRate = d.unemploymentRate;
+                        return uRate ? colorScale(uRate) : "#ccc";
+                    });
+
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
+
+            //create a new SVG in the body
+            const legend = d3.select(".home").append('svg')
+            //add it with the '.legend' class
+                .attr('class', 'legend')
+                //it should be 14px wide
+                .attr('width', 148)
+                //and 148px high
+                .attr('height', 148)
+                //then either select all the 'g's inside the svg
+                //or create placeholders
+                .selectAll('g')
+                //Fill the data into our placeholders in reverse order
+                //This arranges our legend in descending order.
+                //The 'data' here is the items we entered in the 'domain',
+                //in this case [min, max]
+                .data(colorScale.domain().slice().reverse())
+                //Every node in teh data should have a 'g' appended
+                .enter().append('g')
+                //the 'g' should have this attribute
+                .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+            //Inside every 'legend', insert a rect
+            legend.append("rect")
+                //that's 18px wide
+                .attr("width", 18)
+                //and 18px high
+                .attr("height", 18)
+                //then fill it will the color assigned by the scale
+                .style("fill", colorScale);
+
+            legend.append("text")
+                .attr("x", 24)
+                .attr("y", 9)
+                .attr("dy", ".35em")
+                .text(function(d) { return `${(d*100).round(2).toFixed(1)}%`});
+
+        });
+    });
+
+</script>
